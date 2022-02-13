@@ -31,7 +31,7 @@ class AbstractShop(metaclass=ABCMeta):
 
     @staticmethod
     def _check_comic(search_term, comic):
-        terms = re.split(' |,|-|_', search_term)
+        terms = re.split('[ ,-_.]', search_term)
         if comic.get('in_shop') and all([term.strip().lower() in comic.get('name').lower() for term in terms]):
             return True
         else:
